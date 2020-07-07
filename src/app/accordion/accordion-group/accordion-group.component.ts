@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ContentChild } from '@angular/core';
+import { AccordionHeaderComponent } from '../accordion-header/accordion-header.component';
+import { AccordionContentComponent } from '../accordion-content/accordion-content.component';
 
 @Component({
   selector: 'accordion-group',
   templateUrl: './accordion-group.component.html',
-  styleUrls: ['./accordion-group.component.scss']
+  styleUrls: ['./accordion-group.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AccordionGroupComponent implements OnInit {
+export class AccordionGroupComponent {
+  @ContentChild(AccordionHeaderComponent)
+  header!: AccordionHeaderComponent;
 
-  constructor() { }
+  @ContentChild(AccordionContentComponent)
+  content!: AccordionContentComponent;
 
-  ngOnInit(): void {
+  toggle() {
+    this.header.isOpen = !this.header.isOpen;
+    this.content.isOpen = !this.content.isOpen;
   }
 
 }
