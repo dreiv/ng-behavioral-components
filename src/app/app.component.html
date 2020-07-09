@@ -1,6 +1,7 @@
 <accordion class="accordion">
   <accordion-group *ngFor="let section of data" class="card">
     <accordion-header class="card-header" #header="accordionHeader">
+      <app-icon [isOpen]="header.isOpen"></app-icon>
       {{ section.title }}
     </accordion-header>
     <accordion-content>
@@ -9,6 +10,26 @@
           {{ section.description }}
         </div>
       </ng-template>
+    </accordion-content>
+  </accordion-group>
+
+  <accordion-group class="card">
+    <accordion-header class="card-header">
+      Nested Accordion
+    </accordion-header>
+    <accordion-content>
+      <div class="card-body">
+        <accordion>
+          <accordion-group class="card">
+            <accordion-header class="card-header">
+              Accordionception
+            </accordion-header>
+            <accordion-content>
+              :O
+            </accordion-content>
+          </accordion-group>
+        </accordion>
+      </div>
     </accordion-content>
   </accordion-group>
 </accordion>

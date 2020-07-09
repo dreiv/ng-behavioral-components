@@ -21,6 +21,9 @@ export class AccordionComponent implements AfterContentInit, OnDestroy {
   groups!: QueryList<AccordionGroupComponent>;
   private unsubscribe$ = new Subject<void>();
 
+  @ContentChildren(AccordionComponent, { descendants: true })
+  accordionChilds!: QueryList<AccordionComponent>;
+
   ngAfterContentInit(): void {
     this.groups.changes
       .pipe(
