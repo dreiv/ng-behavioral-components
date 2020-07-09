@@ -1,4 +1,11 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding, ElementRef, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  HostBinding,
+  ElementRef,
+  ChangeDetectorRef
+} from '@angular/core';
 import { fromEvent } from 'rxjs';
 
 @Component({
@@ -21,13 +28,9 @@ export class AccordionHeaderComponent {
     }
   }
 
-  get isOpen() {
+  get isOpen(): boolean {
     return this._isOpen;
   }
 
-  constructor(
-    private host: ElementRef,
-    private cdr: ChangeDetectorRef
-  ) { }
-
+  constructor(private host: ElementRef, private cdr: ChangeDetectorRef) {}
 }

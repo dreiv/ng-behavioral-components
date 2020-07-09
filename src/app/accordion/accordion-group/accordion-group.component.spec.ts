@@ -8,9 +8,8 @@ describe('AccordionGroupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccordionGroupComponent ]
-    })
-    .compileComponents();
+      declarations: [AccordionGroupComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

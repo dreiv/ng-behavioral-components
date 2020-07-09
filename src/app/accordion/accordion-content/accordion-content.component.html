@@ -1,3 +1,4 @@
-<div *ngIf="isOpen">
+<div *ngIf="isOpen" [@slideInOut]>
+  <ng-template [ngTemplateOutlet]="lazyContent && lazyContent.content"></ng-template>
   <ng-content></ng-content>
 </div>

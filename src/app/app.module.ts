@@ -5,14 +5,9 @@ import { AppComponent } from './app.component';
 import { AccordionModule } from './accordion/accordion.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AccordionModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AccordionModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

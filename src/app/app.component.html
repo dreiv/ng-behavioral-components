@@ -1,1 +1,14 @@
-<h1>hello world!</h1>
+<accordion class="accordion">
+  <accordion-group *ngFor="let section of data" class="card">
+    <accordion-header class="card-header" #header="accordionHeader">
+      {{ section.title }}
+    </accordion-header>
+    <accordion-content>
+      <ng-template accordionContentLazy>
+        <div class="card-body">
+          {{ section.description }}
+        </div>
+      </ng-template>
+    </accordion-content>
+  </accordion-group>
+</accordion>

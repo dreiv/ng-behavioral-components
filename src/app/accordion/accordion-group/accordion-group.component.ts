@@ -1,23 +1,25 @@
-import { Component, ChangeDetectionStrategy, ContentChild } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ContentChild
+} from '@angular/core';
 import { AccordionHeaderComponent } from '../accordion-header/accordion-header.component';
 import { AccordionContentComponent } from '../accordion-content/accordion-content.component';
 
 @Component({
   selector: 'accordion-group',
-  templateUrl: './accordion-group.component.html',
-  styleUrls: ['./accordion-group.component.scss'],
+  template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AccordionGroupComponent {
-  @ContentChild(AccordionHeaderComponent)
+  @ContentChild(AccordionHeaderComponent, { static: true })
   header!: AccordionHeaderComponent;
 
-  @ContentChild(AccordionContentComponent)
+  @ContentChild(AccordionContentComponent, { static: true })
   content!: AccordionContentComponent;
 
-  toggle() {
-    this.header.isOpen = !this.header.isOpen;
-    this.content.isOpen = !this.content.isOpen;
+  toggle(value?: boolean): void {
+    this.header.isOpen = value ? value : !this.header.isOpen;
+    this.content.isOpen = value ? value : !this.content.isOpen;
   }
-
 }
